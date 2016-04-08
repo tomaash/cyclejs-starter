@@ -8,6 +8,7 @@ This is a simple starter template for [Cycle.js](http://cycle.js.org/) apps.
 From the command line after cloning:
 
 `npm install`
+
 `npm run start`
 
 ### Development

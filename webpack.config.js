@@ -1,40 +1,38 @@
 var path = require('path');
 var webpack = require('webpack');
-
-var ENV = process.env.NODE_ENV;
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: ( ENV == 'production' ?
-           ['./js/main']
-           :
-           [
-            'webpack-dev-server/client?http://localhost:8080',
-            'webpack/hot/dev-server',
-            './js/main'
-           ]
-  ),
+  devtool: 'eval',
+  entry: [
+    'webpack-hot-middleware/client',
+    './src/js/index'
+  ],
   output: {
-    filename: './dist/bundle.js'
+    path: path.join(__dirname, 'dist'),
+    filename: 'app.js',
+    publicPath: '/assets/'
   },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin(),
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: 'index.template.html'
+    })
+  ],
   module: {
     loaders: [
       {
         test: /\.js$/,
         loaders: ['babel'],
-        include: __dirname,
-        exclude: /node_modules/
-      }
+        include: path.join(__dirname, 'src')
+      },
+      {
+        test: /\.css$/,
+        loaders: ['style', 'css']
+      },
+      { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=image/svg+xml' },
     ]
-  },
-  plugins: ( ENV == 'production' ?
-             [
-              new webpack.optimize.UglifyJsPlugin({minimize: true}),
-             ]
-             :
-             [new webpack.HotModuleReplacementPlugin()]
-  ),
-  devServer: {
-    contentBase: './',
-    hot: true
   }
 };

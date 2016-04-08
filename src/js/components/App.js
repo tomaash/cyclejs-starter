@@ -3,7 +3,6 @@ import {div, img} from '@cycle/dom';
 import AdjectiveInput from './AdjectiveInput';
 import Sentence from './Sentence';
 
-
 function App(sources) {
 
   const adjectiveInputComponent = AdjectiveInput({DOM: sources.DOM});

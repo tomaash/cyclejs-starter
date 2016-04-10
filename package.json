@@ -37,6 +37,7 @@
     "@cycle/core": "^6.0.0",
     "@cycle/dom": "^8.0.0",
     "@cycle/isolate": "^1.2.0",
+    "babel-plugin-transform-react-jsx": "^6.7.5",
     "cycle-restart": "0.0.14",
     "rx": "^4.0.7",
     "webpack-dev-middleware": "^1.6.1",

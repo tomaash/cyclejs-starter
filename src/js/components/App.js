@@ -1,3 +1,4 @@
+import {hJSX} from '@cycle/dom';
 import {Observable} from 'rx';
 import {div, img} from '@cycle/dom';
 import AdjectiveInput from './AdjectiveInput';
@@ -18,11 +19,11 @@ function App(sources) {
           adjectiveInputVTree$,
           sentenceVTree$,
           (inputVTree, sentenceVTree) =>
-            div({className: 'app'}, [
-              img({src: '/images/cyclejs_logo.svg', width: 200}),
-              sentenceVTree,
-              inputVTree
-            ])
+            <div className="app">
+              <img src="/images/cyclejs_logo.svg" width="200"/>
+              {sentenceVTree}
+              {inputVTree}
+            </div>
         );
 
   const sinks = {

@@ -1,5 +1,4 @@
-import {h1} from '@cycle/dom';
-
+import {hJSX} from '@cycle/dom';
 
 function Sentence(sources) {
 
@@ -7,7 +6,7 @@ function Sentence(sources) {
 
   const vTree$ = adjectiveInputValue$
         .map(v => !v.length ? '...' : `${v}!`)
-        .map(v => h1({className: 'sentence'}, `Cycle is ${v}`));
+				.map(v => <h1 className="sentence">Cycle is {v}</h1>);
 
   const sinks = {
     DOM: vTree$
@@ -15,6 +14,5 @@ function Sentence(sources) {
 
   return sinks;
 }
-
 
 export default Sentence;

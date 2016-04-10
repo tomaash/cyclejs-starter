@@ -1,7 +1,6 @@
 import {Observable} from 'rx';
 import {input} from '@cycle/dom';
 
-
 function AdjectiveInput(sources) {
 
   const inputValue$ = sources.DOM
@@ -25,6 +24,5 @@ function AdjectiveInput(sources) {
 
   return sinks;
 }
-
 
 export default AdjectiveInput;
